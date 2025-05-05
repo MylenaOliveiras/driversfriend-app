@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:id="@+id/scrollViewForm"
+    tools:context=".FormVehicleActivity">
+
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:columnCount="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/editTextMarca"
+            android:text="Marca:"
+            android:textSize="16sp"
+            app:layout_gravity="fill_horizontal"
+            />
+
+        <EditText
+            android:id="@+id/editTextMarca"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:hint="Ex: 37"
+            android:inputType="number"
+            app:layout_gravity="fill_horizontal"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:labelFor="@+id/editTextModelo"
+            android:text="Modelo:"
+            android:textSize="16sp"
+            app:layout_gravity="fill_horizontal"
+            />
+
+        <EditText
+            android:id="@+id/editTextModelo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:hint="Ex: Teste novo"
+            android:inputType="text"
+            app:layout_gravity="fill_horizontal"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:labelFor="@+id/editTextCor"
+            android:text="Cor:"
+            android:textSize="16sp"
+            app:layout_gravity="fill_horizontal"
+            />
+
+        <EditText
+            android:id="@+id/editTextCor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:hint="Ex: Prata"
+            android:inputType="text"
+            app:layout_gravity="fill_horizontal"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:labelFor="@+id/editTextAnoModelo"
+            android:text="Ano Modelo:"
+            android:textSize="16sp"
+            app:layout_gravity="fill_horizontal"
+            />
+
+        <EditText
+            android:id="@+id/editTextAnoModelo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:hint="Ex: 2023"
+            android:inputType="number"
+            app:layout_gravity="fill_horizontal"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:labelFor="@+id/editTextAnoFabricacao"
+            android:text="Ano Fabricação:"
+            android:textSize="16sp"
+            app:layout_gravity="fill_horizontal"
+            />
+
+        <EditText
+            android:id="@+id/editTextAnoFabricacao"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:hint="Ex: 2022"
+            android:inputType="number"
+            app:layout_gravity="fill_horizontal"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:labelFor="@+id/editTextPlacaVeiculo"
+            android:text="Placa Veículo:"
+            android:textSize="16sp"
+            app:layout_gravity="fill_horizontal"
+            />
+
+        <EditText
+            android:id="@+id/editTextPlacaVeiculo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:hint="Ex: ABC1D20"
+            android:inputType="textCapCharacters"
+            app:layout_gravity="fill_horizontal"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:labelFor="@+id/editTextKmInicial"
+            android:text="Km Inicial:"
+            android:textSize="16sp"
+            app:layout_gravity="fill_horizontal"
+            />
+
+        <EditText
+            android:id="@+id/editTextKmInicial"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:hint="Ex: 5000"
+            android:inputType="number"
+            app:layout_gravity="fill_horizontal"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Tipo Combustível:"
+            android:textSize="16sp"
+            app:layout_gravity="fill_horizontal"
+            />
+
+        <Spinner
+            android:id="@+id/spinnerTipoCombustivel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:entries="@array/tipos_combustivel"
+            app:layout_gravity="fill_horizontal"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Tipo Veículo:"
+            android:textSize="16sp"
+            app:layout_gravity="fill_horizontal"
+
+            />
+
+        <Spinner
+            android:id="@+id/spinnerTipoVeiculo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:entries="@array/tipos_veiculo"
+            app:layout_gravity="fill_horizontal"
+            />
+
+        <Button
+            android:id="@+id/buttonEnviar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Enviar"
+            app:layout_columnSpan="2"
+            app:layout_gravity="fill_horizontal" />
+
+
+    </androidx.gridlayout.widget.GridLayout>
+</ScrollView>

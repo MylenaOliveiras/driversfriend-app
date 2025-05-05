@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- 🎨 Tons de Roxo -->
+    <color name="purpleExtraDark">#3C006E</color>
+    <color name="purpleDark">#5F179B</color>
+    <color name="purpleMedium">#792fb4</color>
+    <color name="purpleLight">#9248CD</color>
+    <color name="purpleExtraLight">#ac60e6</color>
+    <color name="purpleAccent">#c578ff</color>
+
+    <!-- 🎨 Tons de Amarelo -->
+    <color name="yellowDark">#ffb300</color>
+    <color name="yellowMedium">#ffc533</color>
+    <color name="yellowLight">#ffd166</color>
+    <color name="yellowExtraLight">#ffe699</color>
+    <color name="yellowAccent">#fff2cc</color>
+
+    <!-- 🎨 Tons de Cinza -->
+    <color name="grayDrak">#282828</color>
+    <color name="grayMedium">#666666</color>
+    <color name="grayLight">#EDEDED</color>
+
+    <!-- 🎨 Errors -->
+    <color name="error">#C82525</color>
+    <color name="errorLight">#EEDEDA</color>
+
+    <color name="cream">#F6F6F6</color>
+
+    <color name="currentColor">#F6F6F6</color>
+
+
+
+
+
+
+</resources>
