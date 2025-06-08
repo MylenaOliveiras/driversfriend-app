@@ -1,6 +1,8 @@
 package com.example.myapplication
 
+import android.content.Context
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -17,6 +19,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initNavigation()
+
+        val sharedPref = getSharedPreferences("APP_PREFS", Context.MODE_PRIVATE)
+        val userName = sharedPref.getString("userName", null)
+
+        findViewById<TextView>(R.id.userName).text = "Olá, ${userName}!"
     }
 
     private fun initNavigation(){
@@ -24,4 +31,9 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         NavigationUI.setupWithNavController(binding.bottomNavigationView, navController)
     }
+
+    fun selectBottomNavItem(itemId: Int) {
+        binding.bottomNavigationView.selectedItemId = itemId
+    }
+
 }

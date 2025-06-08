@@ -1,4 +1,4 @@
-package com.example.myapplication.models.vehicle
+package com.example.myapplication.models
 
 data class VehicleList(
     val id: Int,

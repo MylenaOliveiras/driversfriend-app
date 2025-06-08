@@ -1,4 +1,4 @@
-package com.example.myapplication.models.user
+package com.example.myapplication.models
 
 data class User (
     val id: Int,
@@ -7,3 +7,4 @@ data class User (
     val cpf: String,
     val senha: String,
 )
+

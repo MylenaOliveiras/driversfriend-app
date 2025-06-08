@@ -1,33 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
-    android:background="?android:attr/selectableItemBackground">
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@color/white">
 
-    <TextView
-    android:id="@+id/modeloVeiculo"
-    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginEnd="8dp" android:text="Modelo do Veículo" android:textSize="18sp"
-    android:textStyle="bold"
-    android:textColor="@android:color/black" app:layout_constraintBottom_toTopOf="@+id/placaVeiculo" app:layout_constraintEnd_toStartOf="@+id/btnEditar" app:layout_constraintHorizontal_bias="0.0" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" tools:text="Fiat Uno Mille" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <TextView
-    android:id="@+id/placaVeiculo"
-    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:layout_marginEnd="8dp" android:text="Placa" android:textSize="16sp"
-    app:layout_constraintEnd_toStartOf="@+id/btnDeletar" app:layout_constraintHorizontal_bias="0.0" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/modeloVeiculo" app:layout_constraintBottom_toBottomOf="parent" tools:text="ABC-1234" />
+        <TextView
+            android:id="@+id/modeloVeiculo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:text="Modelo do Veículo" />
 
-    <ImageButton
-    android:id="@+id/btnEditar"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:minWidth="40dp" android:minHeight="40dp" android:background="?attr/selectableItemBackgroundBorderless" android:contentDescription="Editar item" android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/btnDeletar" app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent" app:srcCompat="@drawable/ic_edit" tools:srcCompat="@drawable/ic_edit" />
 
-    <ImageButton
-    android:id="@+id/btnDeletar"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:minWidth="40dp" android:minHeight="40dp" android:background="?attr/selectableItemBackgroundBorderless" android:contentDescription="Excluir item" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent" app:srcCompat="@drawable/ic_delete" tools:srcCompat="@drawable/ic_delete" />
+        <TextView
+            android:id="@+id/nomeMarcaVeiculo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:text="Marca: Carregando..." />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginTop="8dp">
+
+            <Switch
+                android:id="@+id/switchSelectVehicle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selecionar"
+                android:textColor="@color/black"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="16dp"/>
+
+            <ImageView
+                android:id="@+id/btnEditar"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_edit"
+                android:padding="4dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:layout_marginEnd="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="Editar Veículo"
+                app:tint="@color/purpleExtraDark"/>
+
+            <ImageView
+                android:id="@+id/btnDeletar"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_delete"
+                android:padding="4dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="Excluir Veículo"
+                app:tint="@color/purpleExtraDark"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

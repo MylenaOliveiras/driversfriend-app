@@ -1,24 +1,387 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cream"
+    android:fillViewport="true"
+    android:contentDescription="Conteúdo principal da tela inicial, com informações do veículo e opções de navegação."
     tools:context=".HomeFragment">
 
-    <TextView
-        android:id="@+id/hello"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Home"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:padding="16dp">
+
+        <LinearLayout
+            android:id="@+id/noVehicleRegisteredLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:background="@drawable/card_background"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:visibility="gone" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="Ícone de carro quebrado"
+                android:src="@drawable/ic_car_cash"
+                app:tint="@color/grayMedium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="Nenhum veículo cadastrado!"
+                android:textColor="@color/purpleDark"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="Adicione seu primeiro veículo para começar a gerenciar."
+                android:textColor="@color/grayDark"
+                android:textSize="14sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/addVehicleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="@color/purpleDark"
+                android:text="Adicionar Veículo"
+                android:textColor="@android:color/white"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/ic_add"
+                app:iconGravity="textStart" />
+        </LinearLayout>
 
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/vehicleDashboardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/vehicleCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:background="@drawable/card_background"
+                app:cardBackgroundColor="@color/cream"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="24dp">
+
+                    <ImageView
+                        android:id="@+id/vehicleImage"
+                        android:layout_width="85dp"
+                        android:layout_height="85dp"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="Imagem do veículo"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_car_line"
+                        app:tint="@color/purpleDark" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/vehicleName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/purpleDark"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            tools:text="Veículo: Meu Carro" />
+
+                        <TextView
+                            android:id="@+id/vehiclePlate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/grayMedium"
+                            android:textSize="14sp"
+                            tools:text="Placa: ABC-1234" />
+
+                        <TextView
+                            android:id="@+id/vehicleYear"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/grayMedium"
+                            android:textSize="14sp"
+                            tools:text="Ano: 2020" />
+
+                        <TextView
+                            android:id="@+id/vehicleColor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/grayMedium"
+                            android:textSize="14sp"
+                            tools:text="Cor: Azul" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/bannerNotificacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="18dp"
+                android:gravity="center_vertical"
+                android:minHeight="48dp"
+                android:padding="16dp"
+                app:cardBackgroundColor="@color/warning"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vehicleCard"
+                app:strokeColor="@color/grayLighter"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Aviso"
+                        android:src="@drawable/ic_warning"
+                        app:tint="@color/black" />
+
+                    <TextView
+                        android:id="@+id/textoNotificacao"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="Você tem uma manutenção pendente!"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <Space
+                android:id="@+id/spacer_between_banner_and_cards"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bannerNotificacao" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardManutencao"
+                style="@style/HomeCardStyle"
+                android:layout_width="0dp"
+                app:layout_constraintEnd_toStartOf="@+id/cardGastos"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/spacer_between_banner_and_cards">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical" android:padding="16dp">
+                    <ImageView style="@style/HomeCardIconStyle" android:src="@drawable/ic_build" />
+                    <TextView style="@style/HomeCardTextStyle" android:text="Manutenção" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardGastos"
+                style="@style/HomeCardStyle"
+                android:layout_width="0dp"
+                android:onClick="onGastoClick"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cardManutencao"
+                app:layout_constraintTop_toBottomOf="@id/spacer_between_banner_and_cards">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical" android:padding="16dp">
+                    <ImageView style="@style/HomeCardIconStyle" android:src="@drawable/ic_payments" />
+                    <TextView style="@style/HomeCardTextStyle" android:text="Gastos" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardVeiculos"
+                style="@style/HomeCardStyle"
+                android:layout_width="0dp"
+                android:onClick="onVeiculoClick"
+                app:layout_constraintEnd_toStartOf="@+id/cardConsumo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardManutencao">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical" android:padding="16dp">
+                    <ImageView style="@style/HomeCardIconStyle" android:src="@drawable/ic_cars" />
+                    <TextView style="@style/HomeCardTextStyle" android:text="Veículos" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardConsumo"
+                style="@style/HomeCardStyle"
+                android:layout_width="0dp"
+                android:layout_marginTop="16dp"
+                android:onClick="onConsumoClick"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cardVeiculos"
+                app:layout_constraintTop_toBottomOf="@id/cardGastos">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical" android:padding="16dp">
+                    <ImageView style="@style/HomeCardIconStyle" android:src="@drawable/ic_chart_fill" />
+                    <TextView style="@style/HomeCardTextStyle" android:text="Consumo" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/purpleAccent"
+                android:padding="16dp"
+                app:layout_constraintTop_toBottomOf="@id/cardVeiculos">
+
+                <TextView
+                    android:id="@+id/tituloResumo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:accessibilityHeading="true"
+                    android:background="@color/purpleDark"
+                    android:importantForAccessibility="yes"
+                    android:padding="8dp"
+                    android:text="Resumo Rápido"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/mesAtual"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Maio 2025"
+                    android:textColor="@color/grayDark"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tituloResumo" />
+
+                <View
+                    android:id="@+id/divider1"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/grayLighter"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/mesAtual" />
+
+                <TextView
+                    android:id="@+id/gastoTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Gasto total: R$ 845,00"
+                    android:textColor="@color/grayMedium"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider1" />
+
+                <TextView
+                    android:id="@+id/gastoCombustivel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Combustível: R$ 510,00"
+                    android:textColor="@color/grayDark"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/gastoTotal" />
+
+                <TextView
+                    android:id="@+id/gastoManutencao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Manutenção: R$ 280,00"
+                    android:textColor="@color/grayDark"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/gastoCombustivel" />
+
+                <TextView
+                    android:id="@+id/gastoOutros"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Outros: R$ 55,00"
+                    android:textColor="@color/grayDark"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/gastoManutencao" />
+
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/grayLighter"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/gastoOutros" />
+
+                <TextView
+                    android:id="@+id/economiaMedia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Economia média: R$ 0,65/km"
+                    android:textColor="@color/grayDark"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider2" />
+
+                <TextView
+                    android:id="@+id/alertaTrocaOleo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Próxima troca de óleo: em 10 dias"
+                    android:textColor="@color/purpleMedium"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/economiaMedia" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

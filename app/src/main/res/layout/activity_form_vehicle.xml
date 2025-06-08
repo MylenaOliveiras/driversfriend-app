@@ -1,212 +1,322 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:id="@+id/scrollViewForm"
+    android:background="#3F0071"
     tools:context=".FormVehicleActivity">
 
-    <androidx.gridlayout.widget.GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:columnCount="2">
+    <ImageView
+        android:id="@+id/imageViewLogo"
+        android:layout_width="260dp"
+        android:layout_height="131dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_white" />
 
-        <TextView
-            android:layout_width="wrap_content"
+    <ScrollView
+        android:id="@+id/scrollViewForm"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/rouded_card"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewLogo">
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:labelFor="@+id/editTextMarca"
-            android:text="Marca:"
-            android:textSize="16sp"
-            app:layout_gravity="fill_horizontal"
-            />
+            android:orientation="vertical"
+            android:padding="24dp">
 
-        <EditText
-            android:id="@+id/editTextMarca"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:hint="Ex: 37"
-            android:inputType="number"
-            app:layout_gravity="fill_horizontal"
-            />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Classificação:"
+                android:textColor="@color/purpleMedium"
+                android:textSize="24dp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:labelFor="@+id/editTextModelo"
-            android:text="Modelo:"
-            android:textSize="16sp"
-            app:layout_gravity="fill_horizontal"
-            />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutTipoCombustivel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textColorHint="@color/purpleExtraDark"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="24dp"
+                app:boxCornerRadiusBottomStart="24dp"
+                app:boxCornerRadiusTopEnd="24dp"
+                app:boxCornerRadiusTopStart="24dp"
+                app:boxStrokeColor="@color/purpleExtraDark"
+                app:boxStrokeWidth="3dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent">
 
-        <EditText
-            android:id="@+id/editTextModelo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:hint="Ex: Teste novo"
-            android:inputType="text"
-            app:layout_gravity="fill_horizontal"
-            />
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteTipoCombustivel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Tipo Combustível"
+                    android:textColor="@color/black"
+                    android:inputType="none"
+                    android:padding="18dp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:labelFor="@+id/editTextCor"
-            android:text="Cor:"
-            android:textSize="16sp"
-            app:layout_gravity="fill_horizontal"
-            />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutTipoVeiculo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/purpleExtraDark"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="24dp"
+                app:boxCornerRadiusBottomStart="24dp"
+                app:boxCornerRadiusTopEnd="24dp"
+                app:boxCornerRadiusTopStart="24dp"
+                app:boxStrokeColor="@color/purpleExtraDark"
+                app:boxStrokeWidth="3dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent">
 
-        <EditText
-            android:id="@+id/editTextCor"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:hint="Ex: Prata"
-            android:inputType="text"
-            app:layout_gravity="fill_horizontal"
-            />
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteTipoVeiculo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Tipo Veículo"
+                    android:textColor="@color/black"
+                    android:inputType="none"
+                    android:padding="18dp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:labelFor="@+id/editTextAnoModelo"
-            android:text="Ano Modelo:"
-            android:textSize="16sp"
-            app:layout_gravity="fill_horizontal"
-            />
-
-        <EditText
-            android:id="@+id/editTextAnoModelo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:hint="Ex: 2023"
-            android:inputType="number"
-            app:layout_gravity="fill_horizontal"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:labelFor="@+id/editTextAnoFabricacao"
-            android:text="Ano Fabricação:"
-            android:textSize="16sp"
-            app:layout_gravity="fill_horizontal"
-            />
-
-        <EditText
-            android:id="@+id/editTextAnoFabricacao"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:hint="Ex: 2022"
-            android:inputType="number"
-            app:layout_gravity="fill_horizontal"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:labelFor="@+id/editTextPlacaVeiculo"
-            android:text="Placa Veículo:"
-            android:textSize="16sp"
-            app:layout_gravity="fill_horizontal"
-            />
-
-        <EditText
-            android:id="@+id/editTextPlacaVeiculo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:hint="Ex: ABC1D20"
-            android:inputType="textCapCharacters"
-            app:layout_gravity="fill_horizontal"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:labelFor="@+id/editTextKmInicial"
-            android:text="Km Inicial:"
-            android:textSize="16sp"
-            app:layout_gravity="fill_horizontal"
-            />
-
-        <EditText
-            android:id="@+id/editTextKmInicial"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:hint="Ex: 5000"
-            android:inputType="number"
-            app:layout_gravity="fill_horizontal"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Tipo Combustível:"
-            android:textSize="16sp"
-            app:layout_gravity="fill_horizontal"
-            />
-
-        <Spinner
-            android:id="@+id/spinnerTipoCombustivel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:entries="@array/tipos_combustivel"
-            app:layout_gravity="fill_horizontal"
-
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Tipo Veículo:"
-            android:textSize="16sp"
-            app:layout_gravity="fill_horizontal"
-
-            />
-
-        <Spinner
-            android:id="@+id/spinnerTipoVeiculo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:entries="@array/tipos_veiculo"
-            app:layout_gravity="fill_horizontal"
-            />
-
-        <Button
-            android:id="@+id/buttonEnviar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Enviar"
-            app:layout_columnSpan="2"
-            app:layout_gravity="fill_horizontal" />
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginVertical="24dp"
+                android:background="@color/yellow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/gastoOutros" />
 
 
-    </androidx.gridlayout.widget.GridLayout>
-</ScrollView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Detalhes:"
+                android:textColor="@color/purpleMedium"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutMarca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textColorHint="@color/purpleExtraDark"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="24dp"
+                app:boxCornerRadiusBottomStart="24dp"
+                app:boxCornerRadiusTopEnd="24dp"
+                app:boxCornerRadiusTopStart="24dp"
+                app:boxStrokeColor="@color/purpleExtraDark"
+                app:boxStrokeWidth="3dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteMarca"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Marca"
+                    android:textColor="@color/black"
+                    android:inputType="none"
+                    android:padding="18dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutModelo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textColorHint="@color/purpleExtraDark"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="24dp"
+                app:boxCornerRadiusBottomStart="24dp"
+                app:boxCornerRadiusTopEnd="24dp"
+                app:boxCornerRadiusTopStart="24dp"
+                app:boxStrokeColor="@color/purpleExtraDark"
+                app:boxStrokeWidth="3dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextModelo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Modelo"
+                    android:textColor="@color/black"
+                    android:inputType="textCapWords"
+                    android:padding="18dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutCor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textColorHint="@color/purpleExtraDark"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="24dp"
+                app:boxCornerRadiusBottomStart="24dp"
+                app:boxCornerRadiusTopEnd="24dp"
+                app:boxCornerRadiusTopStart="24dp"
+                app:boxStrokeColor="@color/purpleExtraDark"
+                app:boxStrokeWidth="3dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextCor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Cor"
+                    android:textColor="@color/black"
+                    android:inputType="textCapWords"
+                    android:padding="18dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutAnoModelo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textColorHint="@color/purpleExtraDark"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="24dp"
+                app:boxCornerRadiusBottomStart="24dp"
+                app:boxCornerRadiusTopEnd="24dp"
+                app:boxCornerRadiusTopStart="24dp"
+                app:boxStrokeColor="@color/purpleExtraDark"
+                app:boxStrokeWidth="3dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextAnoModelo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ano Modelo"
+                    android:textColor="@color/black"
+                    android:inputType="textEmailAddress"
+                    android:padding="18dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutAnoFabricacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textColorHint="@color/purpleExtraDark"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="24dp"
+                app:boxCornerRadiusBottomStart="24dp"
+                app:boxCornerRadiusTopEnd="24dp"
+                app:boxCornerRadiusTopStart="24dp"
+                app:boxStrokeColor="@color/purpleExtraDark"
+                app:boxStrokeWidth="3dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextAnoFabricacao"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ano Fabricação"
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:padding="18dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutPlacaVeiculo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textColorHint="@color/purpleExtraDark"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="24dp"
+                app:boxCornerRadiusBottomStart="24dp"
+                app:boxCornerRadiusTopEnd="24dp"
+                app:boxCornerRadiusTopStart="24dp"
+                app:boxStrokeColor="@color/purpleExtraDark"
+                app:boxStrokeWidth="3dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextPlacaVeiculo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Placa do veículo"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:padding="18dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutKmInicial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textColorHint="@color/purpleExtraDark"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="24dp"
+                app:boxCornerRadiusBottomStart="24dp"
+                app:boxCornerRadiusTopEnd="24dp"
+                app:boxCornerRadiusTopStart="24dp"
+                app:boxStrokeColor="@color/purpleExtraDark"
+                app:boxStrokeWidth="3dp"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextKmInicial"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Km Inicial"
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:padding="18dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonEnviar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/purpleExtraDark"
+                android:text="Enviar" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
