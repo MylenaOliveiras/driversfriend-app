@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.adapters.CustomVehicleAdapter
-import com.example.myapplication.models.vehicle.VehicleList
+import com.example.myapplication.models.VehicleList
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call

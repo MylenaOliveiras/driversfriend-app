@@ -1,4 +1,4 @@
-package com.example.myapplication.models.vehicle
+package com.example.myapplication.models
 
 
 data class Vehicle(
@@ -11,4 +11,9 @@ data class Vehicle(
     val kmInicial: Int,
     val combustivel: String,
     val tipoVeiculo: String,
+)
+
+data class VehicleBrand(
+    val id: Int,
+    val nome: String
 )

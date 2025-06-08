@@ -1,4 +1,4 @@
-package com.example.myapplication.models.login
+package com.example.myapplication.models
 
 data class LoginRequest(
     val email: String,
@@ -7,5 +7,6 @@ data class LoginRequest(
 
 data class LoginResponse(
     val token: String,
-    val userId: Int
+    val user: User
 )
+

@@ -8,7 +8,7 @@ import okhttp3.Response
 class AuthInterceptor(private val context: Context) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val sharedPref = context.getSharedPreferences("APP_PREFS", Context.MODE_PRIVATE)
-        val token = sharedPref.getString("TOKEN", null)
+        val token = sharedPref.getString("token", null)
 
         if (token == null) {
             return chain.proceed(chain.request())

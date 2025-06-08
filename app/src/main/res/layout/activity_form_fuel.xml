@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_abastecimento"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3F0071"
+    tools:context=".FormFuelActivity">
+    <ScrollView
+    android:id="@+id/scrollViewFormAbastecimento"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_marginTop="24dp"
+    android:background="@drawable/rouded_card"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"> <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Registro de Abastecimento:"
+        android:textColor="@color/purpleMedium"
+        android:textSize="24dp"
+        android:textStyle="bold" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutValorUnitario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:textColorHint="@color/purpleExtraDark"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="24dp"
+        app:boxCornerRadiusBottomStart="24dp"
+        app:boxCornerRadiusTopEnd="24dp"
+        app:boxCornerRadiusTopStart="24dp"
+        app:prefixTextColor="@color/purpleMedium"
+        app:boxStrokeColor="@color/purpleExtraDark"
+        app:boxStrokeWidth="3dp"
+        app:prefixText="R$ ">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextValorUnitario"
+            android:layout_width="match_parent"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:hint="Valor Unitário (p/ Litro/kWh)"
+            android:inputType="numberDecimal"
+            android:padding="18dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutKmAtual"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:textColorHint="@color/purpleExtraDark"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="24dp"
+        app:boxCornerRadiusBottomStart="24dp"
+        app:boxCornerRadiusTopEnd="24dp"
+        app:boxCornerRadiusTopStart="24dp"
+        app:boxStrokeColor="@color/purpleExtraDark"
+        app:boxStrokeWidth="3dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextKmAtual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Km Atual"
+            android:textColor="@color/black"
+            android:inputType="number"
+            android:padding="18dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutLitrosAbastecidos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:textColorHint="@color/purpleExtraDark"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="24dp"
+        app:boxCornerRadiusBottomStart="24dp"
+        app:boxCornerRadiusTopEnd="24dp"
+        app:boxCornerRadiusTopStart="24dp"
+        app:boxStrokeColor="@color/purpleExtraDark"
+        app:boxStrokeWidth="3dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextLitrosAbastecidos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:hint="Litros Abastecidos"
+            android:inputType="numberDecimal"
+            android:padding="18dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutObservacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:textColorHint="@color/purpleExtraDark"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="24dp"
+        app:boxCornerRadiusBottomStart="24dp"
+        app:boxCornerRadiusTopEnd="24dp"
+        app:boxCornerRadiusTopStart="24dp"
+        app:boxStrokeColor="@color/purpleExtraDark"
+        app:boxStrokeWidth="3dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextObservacao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Observação (opcional)"
+            android:textColor="@color/black"
+            android:inputType="textMultiLine"
+            android:lines="3"
+            android:gravity="top"
+            android:padding="18dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonRegistrarAbastecimento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purpleExtraDark"
+        android:text="Registrar Abastecimento" />
+
+</LinearLayout>
+</ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

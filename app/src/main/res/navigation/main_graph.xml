@@ -9,7 +9,11 @@
         android:id="@+id/menu_home"
         android:name="com.example.myapplication.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_menu_home_to_menu_consumption"
+            app:destination="@id/menu_consumption" />
+    </fragment>
     <fragment
         android:id="@+id/menu_car_list"
         android:name="com.example.myapplication.VehiclesFragment"
@@ -26,8 +30,10 @@
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
-        android:id="@+id/menu_settings"
-        android:name="com.example.myapplication.SettingsFragment"
-        android:label="fragment_setting"
-        tools:layout="@layout/fragment_setting" />
+        android:id="@+id/menu_fuel"
+        android:name="com.example.myapplication.FuelFragment"
+        android:label="fragment_fuel"
+        tools:layout="@layout/fragment_fuel" />
+
+
 </navigation>

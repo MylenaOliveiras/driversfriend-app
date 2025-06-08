@@ -15,7 +15,7 @@ object RetrofitClient {
             .build()
 
         retrofit = Retrofit.Builder()
-            .baseUrl("https://driversfriend-api.vercel.app")
+            .baseUrl("http://192.168.1.106:3000/")
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
