@@ -12,54 +12,51 @@
         android:id="@+id/tvOverallAverage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:background="@color/purpleAccent"
-        android:gravity="center"
+        android:background="@color/purpleMedium" android:gravity="center"
         android:padding="16dp"
         android:text="Média Total Geral: -- Km/L"
-        android:textColor="@color/grayDarkest"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textColor="@color/white" android:textSize="18sp" android:textStyle="bold"
+        android:fontFamily="sans-serif-medium" /> <com.github.mikephil.charting.charts.LineChart
+    android:id="@+id/lineChart"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_margin="16dp"
+    android:layout_weight="1"
+    android:background="@drawable/chart_background" /> <LinearLayout
+    android:id="@+id/emptyStateLayout"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="32dp" android:visibility="gone">
 
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/lineChart"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="16dp"
-        android:layout_weight="1"
-        android:background="@drawable/chart_background" />
+    <ImageView
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:src="@drawable/ic_warning" android:contentDescription="Nenhum dado encontrado"
+        app:tint="@color/grayMedium"
+        android:layout_marginBottom="24dp"/>
 
-    <LinearLayout
-        android:id="@+id/emptyStateLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+    <TextView
+        android:id="@+id/tvNoData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:gravity="center"
-        android:orientation="vertical"
-        android:padding="24dp"
-        android:visibility="gone">
+        android:text="Parece que não há dados de consumo para este veículo. \nAdicione seu primeiro abastecimento!" android:textColor="@color/grayDark"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-medium" />
 
-        <TextView
-            android:id="@+id/tvNoData"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:gravity="center"
-            android:text="Parece que não há dados de consumo para este veículo."
-            android:textColor="@color/grayDark"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/btnAddRefuel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/purpleMedium"
-            android:elevation="4dp"
-            android:paddingStart="24dp"
-            android:paddingTop="12dp"
-            android:paddingEnd="24dp"
-            android:paddingBottom="12dp"
-            android:text="Adicionar Abastecimento"
-            android:textColor="@color/white" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/btnAddRefuel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purpleDark" android:elevation="6dp" android:paddingStart="32dp" android:paddingTop="16dp"
+        android:paddingEnd="32dp"
+        android:paddingBottom="16dp"
+        android:text="Adicionar Abastecimento"
+        android:textColor="@color/white"
+        android:textSize="16sp" android:fontFamily="sans-serif-medium" />
+</LinearLayout>
 </LinearLayout>

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cream"
+    android:background="@color/purpleExtraDark"
     tools:context=".FuelFragment">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -36,13 +36,6 @@
             android:textColor="@color/black"
             android:textSize="18sp"
             android:gravity="center"/>
-
-        <Button
-            android:id="@+id/btnAddRefuelEmptyState"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Adicionar Novo Abastecimento" />
 
     </LinearLayout>
 

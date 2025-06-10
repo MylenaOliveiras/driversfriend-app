@@ -74,9 +74,6 @@ class FuelFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapter
 
-        view.findViewById<Button>(R.id.btnAddRefuelEmptyState)?.setOnClickListener {
-            Toast.makeText(context, "Abrir tela de Adicionar Abastecimento", Toast.LENGTH_SHORT).show()
-        }
     }
 
     override fun onResume() {

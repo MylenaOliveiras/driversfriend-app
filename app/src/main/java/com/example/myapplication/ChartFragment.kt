@@ -46,7 +46,7 @@ class ChartFragment : Fragment() {
         lineChart = view.findViewById(R.id.lineChart)
         emptyStateLayout = view.findViewById(R.id.emptyStateLayout)
         btnAddRefuel = view.findViewById(R.id.btnAddRefuel)
-        tvOverallAverage = view.findViewById(R.id.tvOverallAverage) // Inicializa o TextView
+        tvOverallAverage = view.findViewById(R.id.tvOverallAverage)
         return view
     }
 
@@ -99,27 +99,27 @@ class ChartFragment : Fragment() {
                         setupChart(consumptionResponse)
                         // Exibir a média total no TextView
                         tvOverallAverage.text = String.format(Locale.getDefault(), "Média Total Geral: %.2f Km/L", consumptionResponse.mediaTotal)
-                        tvOverallAverage.visibility = View.VISIBLE // Garante que esteja visível
+                        tvOverallAverage.visibility = View.VISIBLE
 
                         lineChart.visibility = View.VISIBLE
                         emptyStateLayout.visibility = View.GONE
                     } else {
                         Log.d("ChartFragment", "Nenhum dado de consumo encontrado para o veículo $vehicleId.")
                         showEmptyState()
-                        tvOverallAverage.visibility = View.GONE // Esconde se não há dados
+                        tvOverallAverage.visibility = View.GONE
                     }
                 } else {
                     val errorMessage = response.errorBody()?.string() ?: "Erro desconhecido"
                     Log.e("ChartFragment", "Erro na resposta da API: ${response.code()} - $errorMessage")
                     showErrorState("Erro ao carregar dados: ${response.code()} - $errorMessage")
-                    tvOverallAverage.visibility = View.GONE // Esconde em caso de erro
+                    tvOverallAverage.visibility = View.GONE
                 }
             }
 
             override fun onFailure(call: Call<ConsumptionResponse>, t: Throwable) {
                 Log.e("ChartFragment", "Falha ao carregar dados de consumo: ${t.message}", t)
                 showErrorState("Falha de conexão: ${t.localizedMessage}")
-                tvOverallAverage.visibility = View.GONE // Esconde em caso de falha
+                tvOverallAverage.visibility = View.GONE
             }
         })
     }
@@ -137,7 +137,6 @@ class ChartFragment : Fragment() {
             Entry(index.toFloat(), dataPoint.consumoMedio.toFloat())
         }
 
-        // --- DataSet para o Consumo Médio ao longo do tempo ---
         val consumptionDataSet = LineDataSet(entries, "Consumo Médio por Abastecimento")
         consumptionDataSet.color = ContextCompat.getColor(requireContext(), R.color.purpleMedium)
         consumptionDataSet.valueTextColor = ContextCompat.getColor(requireContext(), R.color.grayDark)
@@ -158,11 +157,9 @@ class ChartFragment : Fragment() {
             consumptionDataSet.fillAlpha = 80
         }
 
-        // --- APENAS UM DATASET PARA A LINHA PRINCIPAL ---
         val lineData = LineData(consumptionDataSet)
         lineChart.data = lineData
 
-        // --- Configuração do Eixo X (Horizontal - Datas) ---
         val xAxis = lineChart.xAxis
         xAxis.position = com.github.mikephil.charting.components.XAxis.XAxisPosition.BOTTOM
         xAxis.granularity = 1f
@@ -192,23 +189,21 @@ class ChartFragment : Fragment() {
             }
         }
 
-        // --- Configuração do Eixo Y (Vertical - Consumo) ---
         val yAxisLeft = lineChart.axisLeft
         yAxisLeft.textColor = ContextCompat.getColor(requireContext(), R.color.grayDark)
         yAxisLeft.axisLineColor = ContextCompat.getColor(requireContext(), R.color.grayMedium)
         yAxisLeft.gridColor = ContextCompat.getColor(requireContext(), R.color.grayLighter)
         yAxisLeft.setDrawGridLines(true)
-        yAxisLeft.setLabelCount(5, true) // Tenta ter 5 rótulos de forma bonita
+        yAxisLeft.setLabelCount(5, true)
         yAxisLeft.valueFormatter = object : ValueFormatter() {
             override fun getFormattedValue(value: Float): String {
                 return String.format(Locale.getDefault(), "%.2f Km/L", value)
             }
         }
-        yAxisLeft.setAxisMinimum(0f) // Garante que o eixo Y comece em 0 para Km/L
+        yAxisLeft.setAxisMinimum(0f)
 
-        lineChart.axisRight.isEnabled = false // Desabilita o eixo Y da direita
+        lineChart.axisRight.isEnabled = false
 
-        // --- Configurações Gerais do Gráfico ---
         lineChart.description.isEnabled = false
         lineChart.setTouchEnabled(true)
         lineChart.setPinchZoom(true)
@@ -225,7 +220,7 @@ class ChartFragment : Fragment() {
     private fun showEmptyState() {
         lineChart.visibility = View.GONE
         emptyStateLayout.visibility = View.VISIBLE
-        tvOverallAverage.visibility = View.GONE // Esconder a média quando o estado é vazio
+        tvOverallAverage.visibility = View.GONE
     }
 
     private fun showErrorState(message: String) {
@@ -233,6 +228,6 @@ class ChartFragment : Fragment() {
         emptyStateLayout.visibility = View.VISIBLE
         Toast.makeText(context, message, Toast.LENGTH_LONG).show()
         Log.e("ChartFragment", message)
-        tvOverallAverage.visibility = View.GONE // Esconder a média em caso de erro
+        tvOverallAverage.visibility = View.GONE
     }
 }

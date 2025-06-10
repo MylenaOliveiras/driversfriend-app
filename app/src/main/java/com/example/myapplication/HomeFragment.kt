@@ -87,21 +87,17 @@ class HomeFragment : Fragment() {
             try {
                 val selectedVehicleList = Gson().fromJson(json, VehicleList::class.java)
                 val vehicleId = selectedVehicleList.id
-                // Se um veículo está salvo, tente carregá-lo
                 callVehicle(vehicleId)
             } catch (e: Exception) {
                 Log.e("HomeFragment", "Erro ao deserializar veículo selecionado do prefs", e)
-                // Se houver erro de deserialização, limpe e tente buscar a lista
                 clearVehicleDataFromPrefs()
                 callVehiclesAndHandleSelection()
             }
         } else {
-            // Se não há veículo salvo no prefs, tente buscar a lista de veículos
             callVehiclesAndHandleSelection()
         }
     }
 
-    // Esta função será responsável por buscar a lista e lidar com a seleção inicial
     private fun callVehiclesAndHandleSelection() {
         RetrofitClient.apiService.getVehicles().enqueue(object : Callback<List<VehicleList>> {
             override fun onResponse(
@@ -111,12 +107,10 @@ class HomeFragment : Fragment() {
                 if (response.isSuccessful) {
                     val vehicles = response.body() ?: emptyList()
                     if (vehicles.isNotEmpty()) {
-                        // Se há veículos, seleciona o primeiro e salva no SharedPreferences
                         val firstVehicle = vehicles.first()
-                        saveSelectedVehicle(firstVehicle) // Salva o primeiro veículo
-                        callVehicle(firstVehicle.id) // Exibe o primeiro veículo
+                        saveSelectedVehicle(firstVehicle)
+                        callVehicle(firstVehicle.id)
                     } else {
-                        // Se não há veículos, mostra o estado de "nenhum veículo"
                         showNoVehicleRegisteredState()
                         clearVehicleDataFromPrefs()
                     }
