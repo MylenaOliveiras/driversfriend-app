@@ -34,9 +34,9 @@ class ProfileFragment : Fragment() {
     private lateinit var arrowPrivacyPolicy: ImageView
     private lateinit var arrowTermsOfUse: ImageView
 
-    private val USER_PREFS = "user_prefs"
-    private val KEY_USER_NAME = "user_name"
-    private val KEY_USER_EMAIL = "user_email"
+    private val USER_PREFS = "APP_PREFS"
+    private val KEY_USER_NAME = "userName"
+    private val KEY_USER_EMAIL = "userEmail"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
